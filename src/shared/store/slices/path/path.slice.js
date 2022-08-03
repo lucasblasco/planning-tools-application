@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { includeAllItems } from "../../../../path/helpers";
+import { selectActivitiesWithoutSlackNames } from "../activity";
 
 const initialState = {
-  adjacencyList: [],
+  links: [],
   paths: [],
 };
 
@@ -12,14 +14,19 @@ export const pathSlice = createSlice({
     addPath: (state, action) => {
       state.paths = [...action.payload, ...state.paths];
     },
-    addAdjacencyList: (state, action) => {
-      state.adjacencyList = [...action.payload];
+    addLink: (state, action) => {
+      state.links = [...action.payload, ...state.links];
     },
-    resetAll: (state, action) => {
-      state.adjacencyList = initialState.adjacencyList;
-      state.paths = initialState.paths;
+    reset: (state) => {
+      state.links = [...initialState.links];
+      state.paths = [...initialState.paths];
     },
   },
 });
 
-export const { addPath, addAdjacencyList, resetAll } = pathSlice.actions;
+export const selectLinks = (state) => state.path.links;
+export const selectPaths = (state) => state.path.paths;
+
+export const selectCriticalPaths = (state) =>
+  state.path.paths.filter((path) => includeAllItems(path, selectActivitiesWithoutSlackNames(state)));
+export const { addPath, addLink, reset } = pathSlice.actions;

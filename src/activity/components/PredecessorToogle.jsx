@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { TableCell, ToggleButtonGroup, ToggleButton, Stack } from "@mui/material";
-import { extreme } from "../../path/constants";
+import { ToggleButtonGroup, ToggleButton, Stack, Typography } from "@mui/material";
+import { EXTREME } from "../../path/constants";
 
 export const PredecessorToogle = ({ current, items, onChange }) => {
   const [predecessors, setPredecessors] = useState(() => current.predecessor || []);
@@ -11,28 +11,22 @@ export const PredecessorToogle = ({ current, items, onChange }) => {
     onChange({ ...current, predecessor: newActivities });
   };
 
-  const isEditMode = current.isEditMode;
+  const activitiesWithoutCurrentAndEND = items
+    ? items.filter((item) => item.name && item.id !== current?.id && item.name !== EXTREME.END)
+    : null;
+
   return (
-    <TableCell>
-      <Stack direction="row" spacing={1} maxWidth={150} overflow="auto" marginX={1}>
-        <ToggleButtonGroup size="small" value={predecessors} onChange={handleActivities} aria-label="predecessors">
-          {isEditMode
-            ? !!items &&
-              items
-                .filter((item) => item.name && item.name !== current.name && item.name !== extreme.END)
-                .map((item) => (
-                  <ToggleButton style={{ padding: "4px" }} key={item.id} value={item.name}>
-                    {item.name}
-                  </ToggleButton>
-                ))
-            : current.predecessor.map((name) => (
-                <ToggleButton style={{ padding: "4px" }} key={name} value={name}>
-                  {name}
-                </ToggleButton>
-              ))}
-        </ToggleButtonGroup>
-      </Stack>
-    </TableCell>
+    <Stack spacing={1} overflow="auto" margin={1}>
+      <Typography variant="caption">Predecesora/s</Typography>
+      <ToggleButtonGroup size="small" value={predecessors} onChange={handleActivities} aria-label="predecessors">
+        {activitiesWithoutCurrentAndEND &&
+          activitiesWithoutCurrentAndEND.map((item) => (
+            <ToggleButton key={item.id} value={item.name}>
+              {item.name}
+            </ToggleButton>
+          ))}
+      </ToggleButtonGroup>
+    </Stack>
   );
 };
 

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ReactECharts from "echarts-for-react";
 import { SEPARATION_OVERFLOW } from "../constants";
 
-export const Graph = ({ allPaths, activities, links }) => {
+export const Graph = ({ allPaths, links, onItemClick }) => {
   const [nodes, setNodes] = useState([]);
 
   const getData = (paths) => {
@@ -45,18 +45,8 @@ export const Graph = ({ allPaths, activities, links }) => {
   }, [allPaths]);
 
   var showTooltip = (args) => {
-    const currentName = args.data.name;
-    const activity = activities.find((act) => act.name === currentName);
-    if (!activity) {
-      return;
-    }
-    return `<ul style="list-style-type: none;padding: 0">
-                <li>Tiempo de inicio temprano (ES): <b>${activity.earlyStart}</b></li>
-                <li>Tiempo de terminación temprano (EF): <b>${activity.earlyFinish}</b></li>
-                <li>Tiempo de inicio más lejano (LS): <b>${activity.lateStart}</b></li>
-                <li>Tiempo de terminación más lejana (LF): <b>${activity.lateFinish}</b></li>
-                <li>Holgura (H): <b>${activity.freeFloat}</b></li>
-            </ul>`;
+    onItemClick(args.data.name);
+    return;
   };
 
   const options = {
@@ -97,5 +87,6 @@ export const Graph = ({ allPaths, activities, links }) => {
 
 Graph.propTypes = {
   allPaths: PropTypes.array,
-  activities: PropTypes.array,
+  links: PropTypes.array,
+  onItemClick: PropTypes.func,
 };

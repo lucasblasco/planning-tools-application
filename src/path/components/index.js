@@ -1,5 +1,6 @@
-import { Graph } from "./Graph";
-import { PathList } from "./PathList";
-import { PathListItem } from "./PathListItem";
-
-export { PathList, PathListItem, Graph };
+export * from "./Graph";
+export * from "./PathList";
+export * from "./PathListItem";
+export * from "./ProyectDuration";
+export * from "./DurationViewer";
+export * from "./DurationCard";

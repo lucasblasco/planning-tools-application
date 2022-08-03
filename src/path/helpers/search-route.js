@@ -1,16 +1,16 @@
-import { extreme } from "../constants/extreme-nodes";
+import { EXTREME } from "../constants";
 
 export function searchAllPaths(edges) {
   let allPaths = [];
   let stack = [];
   const visited = new Map();
 
-  stack.push(extreme.INIT);
+  stack.push(EXTREME.INIT);
 
   while (Array.isArray(stack) && stack.length > 0) {
     const target = stack[stack.length - 1];
 
-    if (target === extreme.END) {
+    if (target === EXTREME.END) {
       allPaths.push(new Array(...stack));
       stack.pop();
     } else {

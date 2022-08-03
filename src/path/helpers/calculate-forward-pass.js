@@ -1,4 +1,4 @@
-import { extreme } from "../constants/extreme-nodes";
+import { EXTREME } from "../constants";
 import { searchNeighbours } from "./search-route";
 
 export const calculateForwardPass = (adjacencyList, activities) => {
@@ -30,7 +30,7 @@ export const calculateForwardPass = (adjacencyList, activities) => {
     return greaterEarlyFinish;
   };
 
-  const rootNode = activities.find((activity) => activity.name === extreme.INIT);
+  const rootNode = activities.find((activity) => activity.name === EXTREME.INIT);
   forwardQueue.push(rootNode);
   backwardQueue.push(rootNode);
 
@@ -93,7 +93,7 @@ export const calculateForwardPass = (adjacencyList, activities) => {
       ...currentActivity,
       lateStart: +lateStartSuccessor - Number(currentActivity.duration),
       lateFinish: +lateStartSuccessor,
-      freeFloat: +lateStartSuccessor - Number(currentActivity.earlyFinish),
+      slack: +lateStartSuccessor - Number(currentActivity.earlyFinish),
     };
   }
 

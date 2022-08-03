@@ -11,9 +11,9 @@ export const theme = createTheme({
     },
   },
   palette: {
-    primary: {
-      main: "#2C2C2C",
-    },
+    // primary: {
+    //   main: "#181A20",
+    // },
     secondary: {
       main: "#F1F7F6",
     },
@@ -25,7 +25,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Raleway, Arial",
-    fontSize: 12,
+    fontFamily: "Roboto, Arial",
+    fontSize: 14,
   },
 });

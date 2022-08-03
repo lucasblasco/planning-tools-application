@@ -5,11 +5,19 @@ import { Stack, Typography } from "@mui/material";
 
 export const PathList = ({ paths, title, color }) => {
   return (
-    <Stack spacing={2} sx={{ mt: 1 }}>
+    <Stack spacing={2} sx={{ mt: 1 }} alignItems="center" py={2} overflow="scroll">
       <Typography component="h2" variant="subtitle1">
         {title}
       </Typography>
-      <Stack spacing={1}>{!!paths && paths.map((path) => <PathListItem key={paths.indexOf(path)} path={path} />)}</Stack>
+      <Stack spacing={1}>
+        {paths && paths.length > 0 ? (
+          paths.map((path) => <PathListItem key={paths.indexOf(path)} path={path} />)
+        ) : (
+          <Typography component="p" variant="caption">
+            Sin caminos
+          </Typography>
+        )}
+      </Stack>
     </Stack>
   );
 };

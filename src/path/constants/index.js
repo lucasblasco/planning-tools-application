@@ -1,4 +1,2 @@
-import { SEPARATION_OVERFLOW } from "./separation-graph-node";
-import { extreme } from "./extreme-nodes";
-
-export { SEPARATION_OVERFLOW, extreme };
+export * from "./separation-graph-node";
+export * from "./extreme-nodes";

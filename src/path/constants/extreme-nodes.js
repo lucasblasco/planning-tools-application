@@ -1,4 +1,4 @@
-export const extreme = {
+export const EXTREME = {
   INIT: "INIT",
   END: "END",
 };

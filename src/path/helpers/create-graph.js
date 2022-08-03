@@ -1,12 +1,13 @@
-import { extreme } from "../constants/extreme-nodes";
+import { EXTREME } from "../constants";
+import { searchAllPaths } from "./search-route";
 
 export const createGraph = (data) => {
   const edges = [];
   data
-    .filter((activity) => activity.name !== extreme.INIT && activity.name !== extreme.END)
+    .filter((activity) => activity.name !== EXTREME.INIT && activity.name !== EXTREME.END)
     .forEach((activity) => {
       if (activity.predecessor === null) {
-        edges.push([extreme.INIT, activity.name]);
+        edges.push([EXTREME.INIT, activity.name]);
       } else {
         activity.predecessor.forEach((predecessor) => {
           edges.push([predecessor, activity.name]);
@@ -20,7 +21,9 @@ export const createGraph = (data) => {
     []
   );
 
-  emptyDestination.forEach((item) => edges.push([item, extreme.END]));
+  emptyDestination.forEach((item) => edges.push([item, EXTREME.END]));
 
-  return edges;
+  const paths = searchAllPaths(edges);
+
+  return { edges, paths };
 };

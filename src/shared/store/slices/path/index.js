@@ -1,3 +1,1 @@
-import { pathSlice } from "./path.slice";
-
-export { pathSlice };
+export * from "./path.slice";

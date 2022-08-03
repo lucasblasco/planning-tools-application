@@ -1,3 +1,5 @@
-import { isSubArray } from "./is-sub-array";
+export * from "./is-sub-array";
+export * from "./createUUID";
+import iconMap from "./iconMap";
 
-export { isSubArray };
+export { iconMap };
