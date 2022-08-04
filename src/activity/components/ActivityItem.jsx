@@ -49,7 +49,7 @@ export const ActivityItem = ({ activity, handleEdit, handleDelete, processed, di
           <Stack direction="row" spacing={1}>
             <Typography variant="caption">Predecesoras</Typography>
             <Divider orientation="vertical" flexItem />
-            {activity.predecessor === null || activity.predecessor.length === 0 ? (
+            {!activity.predecessor || activity.predecessor.length === 0 ? (
               <Typography variant="caption">Ninguna</Typography>
             ) : (
               activity.predecessor.map((pre) => <Chip key={pre} label={String(pre).toUpperCase()} size="small" />)

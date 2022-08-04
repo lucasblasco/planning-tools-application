@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Footer, Toolbar } from "../../shared/ui";
 import { PathList, ProyectDuration } from "../components";
 import { selectCriticalPaths, selectPaths } from "../../shared/store/slices/path/path.slice";
@@ -14,21 +14,6 @@ export const ResultScreen = () => {
   const criticalPaths = useSelector(selectCriticalPaths);
   const isProcessed = useSelector(selectProcessed);
   const proyectTotalDuration = useSelector(selectProyectTotalDuration);
-
-  const goBack = () => {
-    navigate(-1);
-  };
-
-  const FOOTER_BUTTONS = [
-    {
-      text: "volver",
-      icon: "back",
-      type: "icon",
-      color: "inherit",
-      handle: goBack,
-      position: "left",
-    },
-  ];
 
   return (
     <>
@@ -46,7 +31,7 @@ export const ResultScreen = () => {
         </Box>
       )}
 
-      <Footer buttons={FOOTER_BUTTONS} />
+      <Footer />
     </>
   );
 };

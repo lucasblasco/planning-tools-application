@@ -20,10 +20,17 @@ export const CpmActivityForm = ({ currentActivity, activities, register, errors,
           {...register("name", { required: true, setValueAs: (v) => String(v).toUpperCase() })}
           label="Identificación"
           variant="standard"
+          value={currentActivity.name}
           helperText={errors.name && "Ingrese la identificación. Por ejemplo: A o B"}
           error={!!errors.name}
         />
-        <TextField {...register("description")} label="Descripción" variant="standard" autoComplete="off" />
+        <TextField
+          {...register("description")}
+          label="Descripción"
+          variant="standard"
+          autoComplete="off"
+          value={currentActivity.description}
+        />
         <TextField
           {...register("duration", { required: true, valueAsNumber: true })}
           label="Duración"
@@ -31,6 +38,7 @@ export const CpmActivityForm = ({ currentActivity, activities, register, errors,
           onFocus={handleFocus}
           type="number"
           inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
+          value={currentActivity.duration}
           helperText={errors.duration && "Ingrese la duración para la actividad"}
           error={!!errors.duration}
         />

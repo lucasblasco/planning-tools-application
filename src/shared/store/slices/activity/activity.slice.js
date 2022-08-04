@@ -58,7 +58,7 @@ export const activitySlice = createSlice({
       state.entities = state.entities.map((activity) => (activity.id === current.id ? current : activity));
     },
     clearIfNew: (state, action) => {
-      if (action.payload.name === "") {
+      if (action.payload.name === undefined) {
         state.entities = state.entities.filter((activity) => activity.id !== action.payload.id);
         state.active = null;
       }

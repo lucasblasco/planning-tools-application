@@ -151,7 +151,7 @@ export const ActivityList = () => {
     <Stack>
       <Toolbar title="Actividades" nextPage="/diagram" nextPageTitle="Diagrama" />
 
-      <Box overflow="scroll" marginBottom={8}>
+      <Box overflowY="auto" marginBottom={8}>
         {isSaving ? (
           <Box textAlign="center">
             <Typography variant="overline">Procesando...</Typography>

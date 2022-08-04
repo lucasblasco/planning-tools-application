@@ -5,7 +5,7 @@ import { Stack, Typography } from "@mui/material";
 
 export const PathList = ({ paths, title, color }) => {
   return (
-    <Stack spacing={2} sx={{ mt: 1 }} alignItems="center" py={2} overflow="scroll">
+    <Stack spacing={2} sx={{ mt: 1 }} alignItems="center" py={2} overflow="auto">
       <Typography component="h2" variant="subtitle1">
         {title}
       </Typography>
