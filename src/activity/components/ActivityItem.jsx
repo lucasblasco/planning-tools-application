@@ -57,20 +57,26 @@ export const ActivityItem = ({ activity, handleEdit, handleDelete, processed, di
           </Stack>
 
           <Stack direction="row" spacing={1} sx={{ display: processed ? "flex" : "none" }}>
-            <Typography variant="caption">ES: </Typography>
-            <Typography variant="caption">{activity.earlyStart}</Typography>
-            <Divider orientation="vertical" flexItem />
-            <Typography variant="caption">EF: </Typography>
-            <Typography variant="caption">{activity.earlyFinish}</Typography>
-            <Divider orientation="vertical" flexItem />
-            <Typography variant="caption">LS: </Typography>
-            <Typography variant="caption">{activity.lateStart}</Typography>
-            <Divider orientation="vertical" flexItem />
-            <Typography variant="caption">LF: </Typography>
-            <Typography variant="caption">{activity.lateFinish}</Typography>
-            <Divider orientation="vertical" flexItem />
-            <Typography variant="caption">H: </Typography>
-            <Typography variant="caption">{activity.slack}</Typography>
+            <Stack direction="row" spacing={1}>
+              <Typography variant="caption">ES:</Typography>
+              <Typography variant="caption">{activity.earlyStart}</Typography>
+              <Divider orientation="vertical" flexItem />
+            </Stack>
+            <Stack direction="row" spacing={1}>
+              <Typography variant="caption">EF:</Typography>
+              <Typography variant="caption">{activity.earlyFinish}</Typography>
+              <Divider orientation="vertical" flexItem />
+            </Stack>
+            <Stack direction="row" spacing={1}>
+              <Typography variant="caption">LS:</Typography>
+              <Typography variant="caption">{activity.lateStart}</Typography>
+              <Divider orientation="vertical" flexItem />
+            </Stack>
+            <Stack direction="row" spacing={1}>
+              <Typography variant="caption">LF:</Typography>
+              <Typography variant="caption">{activity.lateFinish}</Typography>
+              <Divider orientation="vertical" flexItem />
+            </Stack>
           </Stack>
         </Stack>
 

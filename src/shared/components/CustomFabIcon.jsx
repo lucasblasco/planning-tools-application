@@ -20,7 +20,7 @@ export const CustomFabIcon = ({ text, color, onClick, disabled, icon }) => {
 
   return (
     <StyledFab color={color} aria-label={text} onClick={onClick} disabled={disabled} variant={extended ? "extended" : "circular"}>
-      <Stack direction="row" spacing={1} alignItems="center">
+      <Stack direction="row" alignItems="center">
         <Typography variant="button" display={{ xs: "none", sm: "block" }}>
           {text}
         </Typography>
