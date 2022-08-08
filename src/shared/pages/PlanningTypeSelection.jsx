@@ -13,6 +13,7 @@ export const PlanningTypeSelection = () => {
 
   const handleListItemClick = (event, value) => {
     setSelected(value);
+    goToActivities();
   };
 
   const goToActivities = () => {
@@ -65,7 +66,7 @@ export const PlanningTypeSelection = () => {
         </List>
       </Box>
 
-      <Footer buttons={FOOTER_BUTTONS} />
+      <Footer />
     </>
   );
 };
