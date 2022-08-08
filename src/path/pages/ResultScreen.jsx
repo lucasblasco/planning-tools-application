@@ -30,8 +30,6 @@ export const ResultScreen = () => {
           <Typography variant="subtitle1">Falta processar las actividades</Typography>
         </Box>
       )}
-
-      <Footer />
     </>
   );
 };

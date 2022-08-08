@@ -34,8 +34,6 @@ export const GraphScreen = () => {
           <Typography variant="subtitle1">Falta processar las actividades</Typography>
         </Box>
       )}
-
-      <Footer />
     </>
   );
 };
